@@ -1,0 +1,4 @@
+com\atguigu\springcloud\MyFallbackProvider.class
+com\atguigu\springcloud\MyFilter.class
+com\atguigu\springcloud\Zuul_9527_StartSpringCloudApp.class
+com\atguigu\springcloud\MyFallbackProvider$1.class

@@ -1,0 +1,22 @@
+package com.atguigu.springcloud.dao;
+
+import com.atguigu.springcloud.entities.deptDo;
+import com.atguigu.springcloud.entities.deptDoExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface CustomerDao {
+    long countByExample(deptDoExample example);
+
+    int deleteByExample(deptDoExample example);
+
+    int insert(deptDo record);
+
+    int insertSelective(deptDo record);
+
+    List<deptDo> selectByExample(deptDoExample example);
+
+    int updateByExampleSelective(@Param("record") deptDo record, @Param("example") deptDoExample example);
+
+    int updateByExample(@Param("record") deptDo record, @Param("example") deptDoExample example);
+}
