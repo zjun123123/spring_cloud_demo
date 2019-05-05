@@ -7,8 +7,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.refresh.ContextRefresher;
+import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.Media;
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -40,6 +45,7 @@ public class DeptController
 	{
 		//contextRefresher.refresh();
 		//throw new RuntimeException();
+
 		System.out.println("============================"+aa);
 		Dept dept =  service.get(id);
 		if(dept ==null)
@@ -54,6 +60,17 @@ public class DeptController
 	{
 		throw new IllegalArgumentException();
 
+	}
+
+	@PostMapping(value = "/dept/body")
+	public String dept(@RequestBody  Dept dept)
+	{
+//		if(bindingResult.hasErrors())
+//		{
+//			return bindingResult.getFieldError().getDefaultMessage();
+//		}
+		System.out.println("============================"+dept);
+		return dept.getDeptno()+"";
 	}
 
 	@RequestMapping(value = "/dept/list", method = RequestMethod.GET)

@@ -8,6 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
 
 
 @NoArgsConstructor
@@ -16,7 +21,12 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class Dept implements Serializable// 1w --orm--- db_table
 {
+
+
+
 	private Long 	deptno; // 主键
+
+	@NotBlank(message = "{dname.error}'")
 	private String 	dname; // 部门名称
 	private String 	db_source;// 来自那个数据库，因为微服务架构可以一个服务对应一个数据库，同一个信息被存储到不同数据库
 	
